@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+.env
+.env.*
+.streamlit/secrets*.toml
+.DS_Store
+*.log
+
+# Local analyst research exports
+output/
+
+# Development scratch, provider downloads and redundant historical exports
+work/
+examples/*_demo_output/
+*.zip
+*.dmg

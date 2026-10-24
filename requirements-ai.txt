@@ -1,0 +1,4 @@
+# Legacy optional adapter only; disabled in the active $0 app.
+# Not required or installed by CI/runtime. No external AI calls are authorized.
+-r requirements.txt
+openai>=1.80,<3

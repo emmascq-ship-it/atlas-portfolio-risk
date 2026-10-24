@@ -1,0 +1,4 @@
+-c requirements.lock
+numpy==2.5.4
+pandas==2.3.3
+plotly==6.9.0

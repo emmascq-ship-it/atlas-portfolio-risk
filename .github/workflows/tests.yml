@@ -1,0 +1,32 @@
+name: ATLAS validation (no deployment)
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    # Standard hosted runners are free for public repositories. Never consume
+    # potentially billable private-repository minutes in this $0 project.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.2'
+      - name: Install pinned runtime and test dependencies
+        run: |
+          python -m pip install -r requirements-test.txt
+          python -m pip check
+          python -m playwright install --with-deps chromium
+      - name: Build synthetic snapshot in the pinned runner environment
+        run: python publish_demo.py
+      - name: Check generated synthetic artifact and all Python regressions
+        run: python release_preflight.py --browser
+      - name: Compare two fresh installations to the runner snapshot
+        run: python scripts/check_reproducible_build.py --work-dir "$RUNNER_TEMP/atlas-fresh"
