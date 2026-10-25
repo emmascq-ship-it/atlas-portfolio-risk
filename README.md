@@ -1,4 +1,4 @@
-# ATLAS · Portfolio Risk Intelligence
+# ATLAS V7.1 RC2 · Portfolio Risk Intelligence
 
 **An inspectable portfolio-risk workbench: from daily returns to evidence-linked analyst review.**
 
@@ -10,9 +10,15 @@ engineering through seven model assets, five asset classes and five focused modu
 
 **The public demo is entirely synthetic.** ATLAS is a research prototype, not
 investment advice, a trading platform, regulatory capital software or a verified
-investment track record. No live deployment URL exists yet.
+investment track record. The current public demo is [available on GitHub Pages](https://emmascq-ship-it.github.io/atlas-portfolio-risk/). The public static release is **V7.1 RC2**, with the approved light design across all five modules.
 
 ![ATLAS Streamlit Overview — synthetic research portfolio](assets/screenshots/overview-desktop.jpg)
+
+## RC2 static visual alignment
+
+The static demo now shares the approved light Streamlit design. It remains a fixed synthetic snapshot with scenario controls and downloads. Draft editing, human acknowledgment, approval and revocation belong to the full Streamlit application only. The final RC2 normal-Terminal preflight passed all 134 Python tests, V6/V7 Chromium suites, 20 responsive module/viewport checks and full Streamlit E2E.
+
+![RC2 static Overview](assets/screenshots/static-overview-desktop.jpg)
 
 ## Explore the workflow
 
@@ -114,11 +120,11 @@ quantiles, no-look-ahead testing, factor assumptions and forecast-window differe
 
 ## Verification and release candidate
 
-**ATLAS V7.1 RC1:** current models and UI are frozen by RELEASE_FREEZE_SHA256.txt.
-The project owner reports a complete normal-Mac-Terminal preflight pass: **134
+**ATLAS V7.1 RC2:** current models and UI are frozen by RELEASE_FREEZE_SHA256.txt.
+The saved normal-Mac-Terminal RC2 log confirms a complete preflight pass: **134
 Python tests, V6/V7 Chromium suites and the full Streamlit E2E**, including approval,
 revocation, exports, mobile layouts and JavaScript checks. Offline synthetic
-build checks also passed. These Terminal results are owner-observed; the agent
+build checks also passed. The exact corrected synthetic HTML was matched to the successful log. The agent
 sandbox's Chromium launch restriction is recorded separately, not an open product
 failure. See [verification report](VERIFICATION_REPORT.md) for attribution/scope.
 
@@ -132,7 +138,7 @@ On Linux, Playwright may require system libraries via
 `python -m playwright install --with-deps chromium`. Two previously fresh pinned
 installations produced matching HTML; cross-platform/BLAS byte identity is not
 claimed. The public-only validation workflow has read-only permissions and no
-deployment step. No remote CI or hosted-URL pass has been claimed.
+deployment step. Current remote results are available in [GitHub Actions](https://github.com/emmascq-ship-it/atlas-portfolio-risk/actions); Pages has its own build/deployment workflow.
 
 ## Limitations and data boundaries
 
@@ -155,9 +161,10 @@ deployment step. No remote CI or hosted-URL pass has been claimed.
 - [Release audit and scope](RELEASE_CANDIDATE.md)
 
 GitHub Pages serves only the synthetic static demo; Streamlit hosting is a separate
-optional decision. **Nothing has been pushed, published or deployed.** Use a public
-GitHub Free repository and the default Pages URL after explicit authorization;
-no paid plan, domain or external service is needed.
+optional decision and is not hosted for this release. RC2 is published to the existing
+[public repository](https://github.com/emmascq-ship-it/atlas-portfolio-risk) on `main`;
+Pages serves `/docs` at the [existing free demo URL](https://emmascq-ship-it.github.io/atlas-portfolio-risk/).
+No paid plan, domain or external service is used.
 
 ## License and attribution
 
